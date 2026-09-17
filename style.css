@@ -1,0 +1,368 @@
+/* =========================================================
+   Yatharth Vishwakarma — Portfolio
+   Theme: "Signal" — a data/ML motif (scatter points, a
+   trend-line divider, and pipeline nodes marking each
+   section) built from a disciplined 3-colour palette.
+   Ink Navy / Signal Teal / Paper
+   ========================================================= */
+
+:root {
+  --ink: #101b2d;
+  --ink-soft: #2b3a52;
+  --teal: #22a699;
+  --teal-dark: #187b71;
+  --paper: #f1f5f4;
+  --paper-tint: #e4ebe9;
+  --text-muted: #5b6b7a;
+  --line: rgba(34, 166, 153, 0.35);
+
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --max-width: 780px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------
+   Hero — scatter-point field on ink navy
+   --------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(circle at 2px 2px, rgba(34, 166, 153, 0.35) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  color: var(--paper);
+  padding: 4.5rem 1.5rem 3.5rem;
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.hero-tagline {
+  margin: 0 0 2rem;
+  color: var(--teal);
+  font-size: 1.05rem;
+}
+
+.hero-nav {
+  display: flex;
+  gap: 1.75rem;
+  border-top: 1px solid var(--ink-soft);
+  padding-top: 1.25rem;
+}
+
+.hero-nav a {
+  font-size: 0.95rem;
+  color: var(--paper);
+  position: relative;
+  padding-bottom: 0.2rem;
+  transition: color 0.2s ease;
+}
+
+.hero-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--teal);
+  transition: width 0.2s ease;
+}
+
+.hero-nav a:hover {
+  color: var(--teal);
+}
+
+.hero-nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Chart divider — jagged trend-line transition out of the hero
+   --------------------------------------------------------- */
+
+.chart-divider {
+  background-color: var(--ink);
+  line-height: 0;
+}
+
+.chart-divider svg {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.chart-divider polygon {
+  fill: var(--paper);
+}
+
+/* ---------------------------------------------------------
+   Sections
+   --------------------------------------------------------- */
+
+.section {
+  padding: 3.5rem 1.5rem;
+}
+
+.section-tint {
+  background-color: var(--paper-tint);
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--line);
+}
+
+.section h2,
+.heading-row h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin: 0 0 1.5rem;
+  color: var(--ink);
+  position: relative;
+}
+
+.section h2::before {
+  content: "";
+  position: absolute;
+  left: -1.9rem;
+  top: 0.45rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--teal);
+  box-shadow: 0 0 0 3px var(--paper);
+}
+
+.section-tint h2::before {
+  box-shadow: 0 0 0 3px var(--paper-tint);
+}
+
+.section p {
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+
+.heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.heading-row h2 {
+  margin: 0 0 1.5rem;
+}
+
+/* Small bar-chart glyph beside the Projects heading */
+.chart-icon {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 22px;
+  margin-bottom: 1.5rem;
+}
+
+.chart-icon i {
+  display: block;
+  width: 6px;
+  background-color: var(--teal);
+  border-radius: 1px;
+}
+
+.chart-icon i:nth-child(1) { height: 10px; }
+.chart-icon i:nth-child(2) { height: 20px; background-color: var(--teal-dark); }
+.chart-icon i:nth-child(3) { height: 14px; }
+
+/* ---------------------------------------------------------
+   Skills
+   --------------------------------------------------------- */
+
+.skills-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.skill-card {
+  background-color: var(--paper);
+  border: 1px solid #d7ddd5;
+  padding: 1rem 1.1rem 1rem 1.6rem;
+  font-weight: 600;
+  color: var(--ink);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease, color 0.2s ease;
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--teal);
+  transform: translateY(-50%);
+  transition: background-color 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  background-color: var(--teal);
+  color: var(--paper);
+  box-shadow: 0 8px 16px rgba(16, 27, 45, 0.18);
+}
+
+.skill-card:hover::before {
+  background-color: var(--ink);
+}
+
+.skill-name {
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------------
+   Projects
+   --------------------------------------------------------- */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--paper);
+  border: 1px solid #d7ddd5;
+  border-top: 3px solid transparent;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-top-color 0.2s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 10px 20px rgba(16, 27, 45, 0.16);
+  transform: translateY(-4px);
+  border-top-color: var(--teal);
+}
+
+.project-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.15rem;
+  margin: 0 0 0.6rem;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.project-card:hover h3 {
+  color: var(--teal-dark);
+}
+
+.project-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------
+   Footer
+   --------------------------------------------------------- */
+
+.site-footer {
+  background-color: var(--ink);
+  color: var(--text-muted);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+}
+
+/* ---------------------------------------------------------
+   Responsive — down to 375px
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-nav {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .section-inner {
+    padding-left: 1.1rem;
+  }
+
+  .section h2::before {
+    left: -1.4rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
